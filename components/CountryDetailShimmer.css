@@ -1,0 +1,35 @@
+.shimmerBtn{
+  display: inline-block;
+  background-color: #c7c7c7;
+  width: 100px;
+  min-height: 34px;
+  box-shadow: none;
+}
+main.dark .shimmerBtn,main.dark .img-container,main.dark .country-Name, main.dark .country-data-value, main.dark .shimmerBorder {
+    background-color: #445869;
+}
+.img-container{
+  width: 40%;
+  background-color: #c7c7c7;
+  min-height: 250px;
+}
+.country-Name{
+  background-color: #c7c7c7;
+  width: 100%;
+  min-height: 45px;
+}
+.country-data-value{
+  background-color: #c7c7c7;
+  width: 200px;
+  min-height: 25px;
+}
+.shimmerBorder{
+  background-color: #c7c7c7;
+  width: 100%;
+  min-height: 34px;
+}
+@media (max-width:940px){
+  .img-container{
+    width: 100%;
+  }
+}
