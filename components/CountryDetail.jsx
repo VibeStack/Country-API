@@ -9,10 +9,11 @@ export default function CountryDetail() {
   const params = useParams()
   const countryName = params.country
   const {state} = useLocation()
-  const [countryData,setCountryData] = useState({})
+  const [countryData,setCountryData] = useState()
   const [notFound,setNotFound] = useState(false)
   const [isDark] = useTheme()
   const windowSize = useWindowSize()
+
 
   function updateCountryData(data){
     setCountryData({
@@ -61,7 +62,7 @@ export default function CountryDetail() {
     </>
   }
   return (
-    countryData === null ? <CountryDetailShimmer />:
+    !countryData ? (<CountryDetailShimmer />):
     <main className={`${isDark? 'dark':''}`}>
         {/* <h1 style={{textAlign:'center'}}>Width: {windowSize.width}, Height: {windowSize.height}</h1> */}
         <div className="countries-details-container">
