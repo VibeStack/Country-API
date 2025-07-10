@@ -32,4 +32,13 @@ main.dark .shimmerBtn,main.dark .img-container,main.dark .country-Name, main.dar
   .img-container{
     width: 100%;
   }
+  .details-text-container{
+    width: 100%;
+  }
+  .details-text{
+    width: 100%;
+  }
+  .country-data-value{
+    width: 50%;
+  }
 }
