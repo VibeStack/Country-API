@@ -14,7 +14,6 @@ export default function CountryDetail() {
   const [isDark] = useTheme()
   const windowSize = useWindowSize()
 
-
   function updateCountryData(data){
     setCountryData({
         name: data.name.common || data.name,
@@ -29,6 +28,10 @@ export default function CountryDetail() {
         currencies: Object.values(data.currencies || {}).map((currency)=>currency.name).join(' , '),
         borders: [],
     });
+    if(!data.borders){
+        data.border = []
+        return;
+    }
     Promise.all(data.borders.map((border)=>{
         return fetch(`https://restcountries.com/v3.1/alpha/${border}`)
         .then((res)=>res.json())
@@ -37,16 +40,16 @@ export default function CountryDetail() {
             // setCountryData((prevState)=>({...prevState,borders: [...prevState.borders,borderCountry.name.common]}))
         })
     })).then((allBordersName)=>{
-        setCountryData((prevState)=>({...prevState,borders: allBordersName}))
+        setTimeout(()=> setCountryData((prevState)=>({...prevState,borders: allBordersName})))
     })
   }
 
   useEffect(()=>{
 
-    // if(state){
-    //     updateCountryData(state)
-    //     return
-    // }
+    if(state){
+        updateCountryData(state.data)
+        return
+    }
     fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
     .then((res)=>res.json())
     .then(([data])=>{
