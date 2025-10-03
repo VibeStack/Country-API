@@ -1,44 +1,87 @@
+/* Shimmer animation */
+@keyframes shimmer {
+  0% {
+    background-position: -450px 0;
+  }
+  100% {
+    background-position: 450px 0;
+  }
+}
+
+.shimmerBtn,
+.img-container,
+.country-Name,
+.country-data-value,
+.shimmerBorder {
+  border-radius: 8px;
+  background: linear-gradient(
+    90deg,
+    #c7c7c7 25%,
+    #e0e0e0 37%,
+    #c7c7c7 63%
+  );
+  background-size: 800px 104px;
+  animation: shimmer 1.5s infinite linear forwards;
+}
+
+/* --- DARK MODE OVERRIDES --- */
+main.dark .shimmerBtn,
+main.dark .img-container,
+main.dark .country-Name,
+main.dark .country-data-value,
+main.dark .shimmerBorder {
+  background: linear-gradient(
+    90deg,
+    #2f3b46 25%,   /* dark gray base */
+    #445869 37%,   /* lighter blue-gray shimmer */
+    #2f3b46 63%
+  );
+  background-size: 800px 104px;
+}
+
+/* Button */
 .shimmerBtn{
   display: inline-block;
-  background-color: #c7c7c7;
-  width: 100px;
-  min-height: 34px;
-  box-shadow: none;
+  width: 120px;
+  min-height: 36px;
+  margin-bottom: 20px;
 }
-main.dark .shimmerBtn,main.dark .img-container,main.dark .country-Name, main.dark .country-data-value, main.dark .shimmerBorder {
-    background-color: #445869;
-}
+
+/* Image placeholder */
 .img-container{
   width: 40%;
-  background-color: #c7c7c7;
-  min-height: 250px;
+  min-height: 280px;
 }
+
+/* Title */
 .country-Name{
-  background-color: #c7c7c7;
-  width: 100%;
-  min-height: 45px;
+  width: 60%;
+  min-height: 40px;
+  margin-bottom: 20px;
 }
+
+/* Text placeholders */
 .country-data-value{
-  background-color: #c7c7c7;
-  width: 200px;
-  min-height: 25px;
+  width: 45%;
+  min-height: 20px;
+  margin-bottom: 10px;
 }
+
+/* Border countries placeholder */
 .shimmerBorder{
-  background-color: #c7c7c7;
-  width: 100%;
-  min-height: 34px;
+  width: 80%;
+  min-height: 32px;
+  margin-top: 24px;
 }
+
 @media (max-width:940px){
   .img-container{
     width: 100%;
   }
-  .details-text-container{
-    width: 100%;
-  }
-  .details-text{
-    width: 100%;
+  .country-Name{
+    width: 80%;
   }
   .country-data-value{
-    width: 50%;
+    width: 100%;
   }
 }
