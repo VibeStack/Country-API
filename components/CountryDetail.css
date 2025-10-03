@@ -28,7 +28,7 @@
 
 .country-details{
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 48px;
     margin-top: 32px;
 }
@@ -72,6 +72,7 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 12px;
+    min-height: 96px;
 }
 .border-countries a{
     padding: 6px 18px;

@@ -84,16 +84,16 @@ export default function CountryDetail() {
                         <p><b>Currencies: </b><span className="currencies">{countryData.currencies}</span></p>
                         <p><b>Language: </b><span className="language">{countryData.language}</span></p>
                     </div>
-                    {
-                        countryData.borders?.length !== 0  && <div className="border-countries">
+                    <div className="border-countries">
+                        {countryData.borders && countryData.borders.length > 0 && (
+                            <>
                             <b>Border Countries: </b>&nbsp;&nbsp;
-                            {
-                                countryData.borders?.map((border)=>{
-                                    return <Link key={border} to={`/${border}`}>{border}</Link>
-                                })
-                            }
-                        </div>
-                    }
+                            {countryData.borders.map((border) => (
+                                <Link key={border} to={`/${border}`}>{border}</Link>
+                            ))}
+                            </>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>
